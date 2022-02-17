@@ -1,8 +1,22 @@
 <footer class="footer-global">
 
 <div class="footer-top">
-
+  <ul class="product-list">
+    {{'footer.list.product' | t }}
+  </ul>
 </div>
+
+{% for link in linklists.main-menu.links %}
+  {% assign child_list_handle = link.title | handleize %}
+  {% if linklists[child_list_handle].links != blank %}
+    <a href="{{ link.url }}">{{ link.title }}</a>
+    [{% for childlink in linklists[child_list_handle].links %}
+      <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+    {% endfor %}]
+  {% else %}
+    <a href="{{ link.url }}">{{ link.title }}</a>
+  {% endif %}
+{% endfor %}
 
 <div class="div footer-bottom">
   {% assign copyright_date = 'now' | date: '%Y' %}
@@ -13,25 +27,13 @@
       <img src="{{ 'facebook.svg' | asset_url }}" alt="{{'footer.social.alt' | t: social: 'facebook'  }}">
     </a>
 
-     <a href ="{{'footer/social.instagram_url' | }}" target="new">
+     <a href ="https://www.instagram.com/{{'footer/social.instagram_handle' | }}" target="new">
       <img src="{{ 'instagram.svg' | asset_url }}" alt="{{'footer.social.alt' | t: social: 'instagram'  }}">
     </a>
 
-    <a href ="{{'footer/social.twitter_url' | }}" target="new">
+    <a href ="https://www.twitter.com/{{'footer/social.twitter_handle' | }}" target="new">
       <img src="{{ 'twitter.svg' | asset_url }}" alt="{{'footer.social.alt' | t: social: 'twitter'  }}">
     </a>
   </div>
 </div>
-
-  <!-- {% for link in linklists.main-menu.links %}
-    {% assign child_list_handle = link.title | handleize %}
-    {% if linklists[child_list_handle].links != blank %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-      [{% for childlink in linklists[child_list_handle].links %}
-        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-      {% endfor %}]
-    {% else %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-    {% endif %}
-  {% endfor %} -->
 </footer>
