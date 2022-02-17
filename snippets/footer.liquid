@@ -6,7 +6,10 @@
   </ul>
 </div>
 
+<ul class="contact-list">
+  {{linklist.footer.title}}
 {% for link in linklists.footer.links %}
+<li>
   {% assign child_list_handle = link.title | handleize %}
   {% if linklists[child_list_handle].links != blank %}
     <a href="{{ link.url }}">{{ link.title }}</a>
@@ -16,7 +19,14 @@
   {% else %}
     <a href="{{ link.url }}">{{ link.title }}</a>
   {% endif %}
+  </li>
 {% endfor %}
+</ul>
+
+<div class="about-us">
+  {{'general.about.title' | t }}
+  <p>{{'general.about.description' | t }}</p>
+</div>
 
 <div class="div footer-bottom">
   {% assign copyright_date = 'now' | date: '%Y' %}
