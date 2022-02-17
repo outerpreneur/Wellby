@@ -6,7 +6,7 @@
 
 <div class="div footer-bottom">
   {% assign copyright_date = 'now' | date: '%Y' %}
-  <span>{{ 'footer.bottom.copyright' t:date 'copyright_date' }}</span>
+  <span>{{ 'footer.bottom.copyright' | t:date 'copyright_date' }}</span>
 </div>
 
   <!-- {% for link in linklists.main-menu.links %}
