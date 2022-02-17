@@ -2,11 +2,11 @@
 
 <div class="footer-top">
   <ul class="product-list">
-    {{'footer.list.product' | t }}
+    {{'footer.list.products' | t }}
   </ul>
 </div>
 
-{% for link in linklists.main-menu.links %}
+{% for link in linklists.footer.links %}
   {% assign child_list_handle = link.title | handleize %}
   {% if linklists[child_list_handle].links != blank %}
     <a href="{{ link.url }}">{{ link.title }}</a>
