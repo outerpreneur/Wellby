@@ -1,11 +1,17 @@
-<a href="/cart">cart</a>
+<header class="header-global">
+<a href="/" class="logo">
+  <img src="{{ 'logo.svg' | asset_url }}" alt="{{'general.shop.title' | t }}">
+</a>
 
-{% if shop.customer_accounts_enabled %}
-    {% if customer %}
-        <a href="/account">account</a>
-        {{ 'log out'  | customer_logout_link }}
-    {% else %}
-        {{ 'log in ' | customer_login_link }}
-        {{ 'register' | customer_register_link }}
+<a href="" class="shop-link text-link"> {{'header.nav.shop' | t }}</a>
+
+    {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+            <a href="/account">account</a>
+            {{ 'log out'  | customer_logout_link }}
+        {% else %}
+            {{ 'log in ' | customer_login_link }}
+            {{ 'register' | customer_register_link }}
+        {% endif %}
     {% endif %}
-{% endif %}
+</header>
