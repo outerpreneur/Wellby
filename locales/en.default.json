@@ -57,6 +57,11 @@
       "quantiy": "quantity",
       "submit": "Add to cart",
       "sold_out": "Sold out"
+    },
+    "uhgg": {
+      "quantiy": "quantity",
+      "submit": "Add to cart",
+      "sold_out": "Sold out"
     }
   }
 }
