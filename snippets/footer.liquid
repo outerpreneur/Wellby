@@ -3,6 +3,9 @@
 <div class="footer-top">
   <ul class="product-list">
     {{'footer.list.products' | t }}
+    {% for product in collections.frontpage.products limit:4 %}
+    <li></li>
+    {% endfor %}
   </ul>
 </div>
 
