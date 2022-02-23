@@ -14,10 +14,10 @@
     {% endfor %}
   </select> {% endcomment %}
 
-    {% for variant in product.variants %}
-      <input type="radio" mame='id' id="variant-{{ forloop.index }}" value="{{ variant.id }}">
-      <label for="variant-{{ forloop.index }}">{{ variant.title }}</label>
-    {% endfor %}
+  {% for variant in product.variants %}
+    <input type="radio" name="id" id="variant-{{ forloop.index }}" value="{{ variant.id }}">
+    <label for="variant-{{ forloop.index }}">{{ variant.title }}</label>
+  {% endfor %}
 
 
   {{ current_variant.price | money }}
