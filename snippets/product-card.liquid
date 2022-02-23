@@ -8,10 +8,16 @@
             product.description | strip_html | split: '.' | first | append: '.'
         }}
     </p>
+    {% if product.variants.size > 1 %}
+    {{ 'product.card.options' | t: optionCount:product.variants.size }} &mdash;
+    {% endif %}
 
-    {{ 'product.card.options' | t: optionCount:product.variants.size }}
+    {% if product.available %}
+    <a href="{{product.url}}">{{ 'product.card.more_info' | t }}</a>
+    {% else %}
+    <a href="{{product.url}}">{{ 'product.form.sold_out' | t }}</a>
+    {%endif %}
 
-    {% unless product.available %}<br /><strong>sold out</strong>{% endunless %}
     <a href="{{ product.url }}">
         <img
             src="{{ product.featured_image.src | img_url: 'large' }}"
