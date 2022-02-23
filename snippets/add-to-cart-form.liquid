@@ -1,6 +1,6 @@
 <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
 
-  <select name="id" id="productSelect">
+  {% comment %} <select name="id" id="productSelect">
     {% for variant in product.variants %}
       {% if variant.available %}
         <option value="{{ variant.id }}">
@@ -12,10 +12,10 @@
         </option>
       {% endif %}
     {% endfor %}
-  </select>
+  </select> {% endcomment %}
 
     {% for variant in product.variants %}
-      <input type="radio" mame='id' id="variant-{{ forloop.index }}">
+      <input type="radio" mame='id' id="variant-{{ forloop.index }}" value="{{ variant.id }}">
       <label for="variant-{{ forloop.index }}">{{ variant.title }}</label>
     {% endfor %}
 
