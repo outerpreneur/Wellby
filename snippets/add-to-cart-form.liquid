@@ -15,8 +15,8 @@
   </select>
 
     {% for variant in product.variants %}
-    <input type="radio" mame='id' id="variant-{{ forloop.index }}">
-    <label for="variant-{{ forloop.index }}">{{ variant.title }}</label>
+      <input type="radio" mame='id' id="variant-{{ forloop.index }}">
+      <label for="variant-{{ forloop.index }}">{{ variant.title }}</label>
     {% endfor %}
 
 
