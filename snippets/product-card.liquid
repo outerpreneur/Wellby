@@ -2,7 +2,7 @@
     <a href="{{ product.url }}">{{ product.title }}</a>
     {{ product.price | money }}
 
-    {{ product.description }}
+    {{ product.description | strip_html | split: '.'| first | append: '.' }}
     {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
     <a href="{{ product.url }}">
       <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
