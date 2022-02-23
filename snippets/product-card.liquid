@@ -8,6 +8,9 @@
             product.description | strip_html | split: '.' | first | append: '.'
         }}
     </p>
+
+    {{ 'product.card.options' | t: optionCount:product.variants.size }}
+
     {% unless product.available %}<br /><strong>sold out</strong>{% endunless %}
     <a href="{{ product.url }}">
         <img
