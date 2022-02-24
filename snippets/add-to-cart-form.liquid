@@ -4,7 +4,6 @@
   enctype="multipart/form-data"
   id="AddToCartForm"
 >
-  {% comment %}
   <select name="id" id="productSelect">
     {% for variant in product.variants %} {% if variant.available %}
     <option value="{{ variant.id }}">
@@ -14,7 +13,7 @@
     <option disabled="disabled">{{ variant.title }} - sold out</option>
     {% endif %} {% endfor %}
   </select>
-  {% endcomment %} 
+  
   
   {% if product.variant.size > 1 %}
     {% for variant in product.variants %}
