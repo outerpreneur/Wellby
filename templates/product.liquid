@@ -17,7 +17,7 @@ product.featured_image %}
   {% for image in product.images %}
   <div class="product-image">
     <img
-      src="{{ image.src | image_url: width: 600, height: 600, crop: 'center' }}"
+      src="{{ image.src | img_url: '600x600', crop: 'center' }}"
       ,
       alt="{{ image.alt | escape }}"
     />
