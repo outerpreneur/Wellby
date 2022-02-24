@@ -15,12 +15,12 @@
 </head>
 <body>
 
-{% include 'header' %}
+{% render 'header' %}
 
   <main role="main">
     {{ content_for_layout }}
 
-    {% include "footer" %} 
+    {% render "footer" %} 
   </main>
 </body>
 </html>

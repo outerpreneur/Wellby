@@ -1,6 +1,5 @@
-{% assign current_variant = product.selected_or_first_available_variant %} {%
-assign featured_image = current_variant.featured_image | default:
-product.featured_image %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
 <div id="page-product">
   <div class="product-info">
@@ -11,16 +10,12 @@ product.featured_image %}
 
     <div>{{ product.description }}</div>
 
-    {% include 'add-to-cart-form' %}
+    {% render 'add-to-cart-form' %}
   </div>
 
-  {% for image in product.images %}
-  <div class="product-image">
-    <img
-      src="{{ image.src | img_url: '600x600', crop: 'center' }}"
-      ,
-      alt="{{ image.alt | escape }}"
-    />
-  </div>
+   {% for image in product.images %}
+    <div class="product-image">
+      <img src="{{ image.src | image_url: width: 100, height: 100 }}" width="1200" height='1200' loading="lazy", crop= 'center' alt="{{ image.alt | escape }}">
+    </div>
   {% endfor %}
 </div>

@@ -10,19 +10,19 @@
             }}
         </p>
         {% if product.variants.size > 1 %}
-        {{ 'product.card.options' | t: optionCount:product.variants.size }} &mdash;
+        {{ 'product.card.options' | t: optionCount: product.variants.size }} &mdash;
         {% endif %}
 
         {% if product.available %}
-        <a href="{{product.url}}">{{ 'product.card.more_info' | t }}</a>
+        <a href="{{ product.url }}">{{ 'product.card.more_info' | t }}</a>
         {% else %}
-        <a href="{{product.url}}">{{ 'product.form.sold_out' | t }}</a>
-        {%endif %}
+        <a href="{{ product.url }}">{{ 'product.form.sold_out' | t }}</a>
+        {% endif %}
     </div>
     <div>
     <a href="{{ product.url }}">
         <img
-            src="{{ product.featured_image.src | img_url: '1200x900', crop: 'center' }}"
+            src="{{ product.featured_image.src | image_url: width: 100, height: 100 }}" width="1200" height="900" loading="lazy" crop= "center" alt="{{}}"
             alt="{{ product.featured_image.alt | escape }}"
         />
     </a>
