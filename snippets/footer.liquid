@@ -2,10 +2,10 @@
 
 <div class="footer-top">
   <ul class="product-list">
-    {{'footer.list.products' | t }}
-    {% for product in collections.frontpage.products limit:4 %}
+    {{ 'footer.list.products' | t }}
+    {% for product in collections.frontpage.products limit: 4 %}
     <li>
-      <a href="{{ product.url}}">{{product.title}}</a>
+      <a href="{{ product.url }}">{{ product.title }}</a>
     </li>
     {% endfor %}
   </ul>
@@ -29,25 +29,25 @@
 </ul>
 
 <div class="about-us">
-  {{'general.about.title' | t }}
-  <p>{{'general.about.description' | t }}</p>
+  {{ 'general.about.title' | t }}
+  <p>{{ 'general.about.description' | t }}</p>
 </div>
 
 <div class="div footer-bottom">
   {% assign copyright_date = 'now' | date: '%Y' %}
-  <span>{{ 'footer.bottom.copyright' | t:date 'copyright_date' }}</span>
+  <span>{{ 'footer.bottom.copyright' | t: date 'copyright_date' }}</span>
 
   <div class="social-links">
-    <a href ="{{'footer/social.facebook_url' | }}" target="new">
-      <img src="{{ 'facebook.svg' | asset_url }}" alt="{{'footer.social.alt' | t: social: 'facebook'  }}">
+    <a href ="{{ 'footer/social.facebook_url' | }}" target="new">
+      <img src="{{ 'facebook.svg' | asset_url }}" alt="{{ 'footer.social.alt' | t: social: 'facebook'  }}">
     </a>
 
-     <a href ="https://www.instagram.com/{{'footer/social.instagram_handle' | }}" target="new">
-      <img src="{{ 'instagram.svg' | asset_url }}" alt="{{'footer.social.alt' | t: social: 'instagram'  }}">
+     <a href ="https://www.instagram.com/{{ 'footer/social.instagram_handle' | }}" target="new">
+      <img src="{{ 'instagram.svg' | asset_url }}" alt="{{ 'footer.social.alt' | t: social: 'instagram'  }}">
     </a>
 
     <a href ="https://www.twitter.com/{{'footer/social.twitter_handle' | }}" target="new">
-      <img src="{{ 'twitter.svg' | asset_url }}" alt="{{'footer.social.alt' | t: social: 'twitter'  }}">
+      <img src="{{ 'twitter.svg' | asset_url }}" alt="{{ 'footer.social.alt' | t: social: 'twitter'  }}">
     </a>
   </div>
 </div>
