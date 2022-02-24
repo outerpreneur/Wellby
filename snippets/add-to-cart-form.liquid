@@ -14,7 +14,9 @@
     <option disabled="disabled">{{ variant.title }} - sold out</option>
     {% endif %} {% endfor %}
   </select>
-  {% endcomment %} {% if product.variant.size > 1 %} {% for variant in
+  {% endcomment %} 
+  
+  {% if product.variant.size > 1 %} {% for variant in
   product.variants %}
   <input
     type="radio"
