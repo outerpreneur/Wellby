@@ -1,0 +1,19 @@
+{% if cart.item_count > 0 %}
+<div class="cart-lines">
+  <h1>cart</h1>
+  <form action="/cart" method="post" novalidate>
+    {% for item in cart.items %}
+        {% render 'line-item' %}
+    {% endfor %}
+</div>
+    <div>
+      <p>sub total : {{ cart.total_price | money }}</p>
+      <button type="submit" name="update">Update</button>
+      <button type="submit" name="checkout">Checkout</button>
+    </div>
+</form>
+
+{% else %}
+  <h2>cart</h2>
+  Cart is empty
+{% endif %}
