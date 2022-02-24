@@ -2,6 +2,6 @@
 $(document).ready(function() {
 
     $(document.on('click', '.js-quantity-button', function(event) {
-        alert('button clicked');
+     alert('button clicked');
     });
 });
