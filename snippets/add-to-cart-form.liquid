@@ -16,16 +16,13 @@
   </select>
   {% endcomment %} 
   
-  {% if product.variant.size > 1 %} {% for variant in
-  product.variants %}
-  <input
-    type="radio"
-    name="id"
-    id="variant-{{ forloop.index }}"
-    value="{{ variant.id }}"
-  />
+  {% if product.variant.size > 1 %}
+    {% for variant in product.variants %}
+  <input type="radio" name="id" id="variant-{{ forloop.index }}" value="{{ variant.id }}" data-inventory-quantity= "{{variant.inventory_quantity}}"/>
+  {% unless variant.available %}disabled{% endunless %}
   <label for="variant-{{ forloop.index }}">{{ variant.title }}</label>
-  {% endfor %} {% else %}
+  {% endfor %} 
+  {% else %}
   <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
   {% endif %}
 
@@ -37,11 +34,7 @@
     product.variants.first.inventory_quantity
   }}" {% endif %} />
 
-  <button
-    class="quantity-button js-quantity-button minus"
-    type="button"
-    disabled
-  >
+  <button class="quantity-button js-quantity-button minus" type="button" disabled>
     &ndash;
   </button>
 

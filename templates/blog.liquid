@@ -13,7 +13,7 @@
         {% else %}
         <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
         {% endif %}
-        </div>
+                     </div>
 </div>
 {% endfor %} {% if paginate.pages > 1 %}
 {{ paginate | default_pagination }}
