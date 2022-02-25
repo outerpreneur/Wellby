@@ -22,7 +22,7 @@
     <div>
     <a href="{{ product.url }}">
         <img
-            src="{{ product.featured_image.src | image_url: width: 100, height: 100 }}" width="1200" height="900" loading="lazy" crop= "center" alt="{{}}"
+            src="{{ product.featured_image.src | img_url: width: 100, height: 100 }}" width="1200" height="900" loading="lazy" crop= "center" alt="{{}}"
             alt="{{ product.featured_image.alt | escape }}"
         />
     </a>
