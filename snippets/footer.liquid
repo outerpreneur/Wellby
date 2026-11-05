@@ -35,20 +35,38 @@
 
 <div class="div footer-bottom">
   {% assign copyright_date = 'now' | date: '%Y' %}
-  <span>{{ 'footer.bottom.copyright' | t: date 'copyright_date' }}</span>
+  <span>{{ 'footer.bottom.copyright' | t: date }}</span>
 
   <div class="social-links">
-    <a href ="{{ 'footer/social.facebook_url' | }}" target="new">
+    <a href ="{{ 'footer/social.facebook_url' }}" target="new">
       <img src="{{ 'facebook.svg' | asset_url }}" alt="{{ 'footer.social.alt' | t: social: 'facebook'  }}">
     </a>
 
-     <a href ="https://www.instagram.com/{{ 'footer/social.instagram_handle' | }}" target="new">
+     <a href ="https://www.instagram.com/{{ 'footer/social.instagram_handle' }}" target="new">
       <img src="{{ 'instagram.svg' | asset_url }}" alt="{{ 'footer.social.alt' | t: social: 'instagram'  }}">
     </a>
 
-    <a href ="https://www.twitter.com/{{'footer/social.twitter_handle' | }}" target="new">
+    <a href ="https://www.twitter.com/{{ 'footer/social.twitter_handle' }}" target="new">
       <img src="{{ 'twitter.svg' | asset_url }}" alt="{{ 'footer.social.alt' | t: social: 'twitter'  }}">
     </a>
   </div>
 </div>
-</footer>
+</footer>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ 'footer.bottom.copyright' | t: date 'copyright_date' }}"
+  to: "{{ 'footer.bottom.copyright' | t: date }}"
+  position: 1020..1061
+- from: "{{ 'footer/social.facebook_url' | }}"
+  to: "{{ 'footer/social.facebook_url' }}"
+  position: 1113..1147
+- from: "{{ 'footer/social.instagram_handle' | }}"
+  to: "{{ 'footer/social.instagram_handle' }}"
+  position: 1322..1360
+- from: "{{'footer/social.twitter_handle' | }}"
+  to: "{{ 'footer/social.twitter_handle' }}"
+  position: 1534..1570
+{%- endcomment -%}
